@@ -202,6 +202,7 @@ jobs:
 | `ndk` | Optional | N/A | Version of NDK to install - e.g. `21.0.6113669` |
 | `cmake` | Optional | N/A | Version of CMake to install - e.g. `3.10.2.4988404` |
 | `channel` | Optional | stable | Channel to download the SDK components from - `stable`, `beta`, `dev`, `canary` |
+| `no-chown` | Optional | `false` | Whether to avoid changing ownership of `$ANDROID_HOME` directory. This can be used in cases where the CI runner don't have root permissions |
 | `script` | Required | N/A | Custom script to run - e.g. to run Android instrumented tests on the emulator: `./gradlew connectedCheck` |
 | `pre-emulator-launch-script` | Optional | N/A | Custom script to run after creating the AVD and before launching the emulator - e.g. `./adjust-emulator-configs.sh` |
 
