@@ -65,6 +65,9 @@ inputs:
   channel:
     description: 'Channel to download the SDK components from - `stable`, `beta`, `dev`, `canary`'
     default: 'stable'
+  no-chown:
+    description: 'Do not change ownership of $ANDROID_HOME directory'
+    default: false
   script:
     description: 'custom script to run - e.g. `./gradlew connectedCheck`'
     required: true

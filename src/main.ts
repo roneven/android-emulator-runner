@@ -167,6 +167,11 @@ async function run() {
     const channelId = getChannelId(channelName);
     console.log(`Channel: ${channelId} (${channelName})`);
 
+    const noChown = core.getInput('no-chown');
+    if (noChown) {
+      console.log(`Not changing ownership of $ANDROID_HOME`);
+    }
+
     // custom script to run
     const scriptInput = core.getInput('script', { required: true });
     const scripts = parseScript(scriptInput);
@@ -185,7 +190,7 @@ async function run() {
     console.log(`::endgroup::`);
 
     // install SDK
-    await installAndroidSdk(apiLevel, target, arch, channelId, emulatorBuild, ndkVersion, cmakeVersion);
+    await installAndroidSdk(apiLevel, target, arch, channelId, noChown, emulatorBuild, ndkVersion, cmakeVersion);
 
     // execute pre emulator launch script if set
     if (preEmulatorLaunchScripts !== undefined) {
